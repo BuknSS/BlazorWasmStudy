@@ -25,10 +25,10 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Publish Static Files
-        run: dotnet publish ./BlazorWasmStudy.csproj -o ./public
+        run: dotnet publish ./BlazorWasmStudy.csproj -o ./publish
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./publish/wwwroot
