@@ -35,8 +35,9 @@ jobs:
 
       - name: Replace index.html to subpath.index.html
         run: |
-              rm ./publish/index.html
-              mv ./publish/subpath.index.html ./publish/index.html
+              rm index.html
+              mv subpath.index.html index.html
+        working-directory: ./publish/wwwroot
 
       - name: Deploy to GitHub Pages(Sub Path)
         uses: peaceiris/actions-gh-pages@v4
