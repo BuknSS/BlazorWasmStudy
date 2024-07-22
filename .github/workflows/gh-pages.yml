@@ -32,3 +32,15 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./publish/wwwroot
+
+      - name: Replace index.html to subpath.index.html
+        run: |
+              rm ./publish/index.html
+              mv ./publish/subpath.index.html ./publish/index.html
+
+      - name: Deploy to GitHub Pages(Sub Path)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish/wwwroot
+          publish_branch: gh-pages-subpath
