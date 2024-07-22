@@ -4,6 +4,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
+    tags: "*"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -33,7 +34,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./publish/wwwroot
 
-      - name: Replace index.html to subpath.index.html
+      - name: Replace index.html with subpath.index.html
         run: |
               rm index.html
               mv subpath.index.html index.html
